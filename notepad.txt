@@ -1,0 +1,20 @@
+application server:- this will run backend applications
+web server:- this will run frontend applications.
+two-tier application: user---->application server---------> database
+three-tier application:- user--->frontend UI--->backend api------>database
+
+LOGS:-
+An application runs as multiple processes in linux machined
+Loga are stored here:- /var/log/myapp/app.log--->contains logs from the moment the file was created until something rotates, truncates, or deletes itf 
+To retrieve logs from a specific date:- grep "^2026-05-01" /var/log/myapp/app.log
+
+DISK:-
+disk refers to a physical or virtual storage device used to store data permanently./
+A disk can be divided into partitions, which are smaller sections of the disk.
+df -h-------------> display the amount of storage, used storage left storage.
+d- -sh <folder>----------->displays the amount of storage/disk used by that folder
+Alerting script
+df -h | awk '$5+0 > 80 {print "ALERT: Disk usage above 80% on", $6}'
+
+
+
