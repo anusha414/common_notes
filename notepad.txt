@@ -12,9 +12,28 @@ DISK:-
 disk refers to a physical or virtual storage device used to store data permanently./
 A disk can be divided into partitions, which are smaller sections of the disk.
 df -h-------------> display the amount of storage, used storage left storage.
-d- -sh <folder>----------->displays the amount of storage/disk used by that folder
+du -sh <folder>----------->displays the amount of storage/disk used by that folder
 Alerting script
 df -h | awk '$5+0 > 80 {print "ALERT: Disk usage above 80% on", $6}'
 
+PROCESS MANAGEMENT:-
+A running instance of any application in linux is called process.
+ps aux:- lists all running processes along with cpu and memeory utilization
+ps aux | wc-l :- lists number of running process
+ps -ef:- displays the list of running process
+kill <pid>:- to kill a process
+ps aux | grep "java":- list the java related processes, NOTE:- if the output is only single java which means it showed the same command
+kill -9 <pid>:- to forcefully delete the process
+kill -STOP <pid>:- to temporarily stop nthe process
+kill -CONT <pid>:- to resume the process
+renice -n <priority-id> -p <pid>:- to set the priority for the process in execution
+-19(more priority)-------->20(less priority) at the cpu
+By default whichever process spends more time at the cpu is considered high priority
+
+SERVICE MANAGEMNT:-
+Services are the process that will be excuted in the background and they start running at the boot of the system.
+systemctl list-units --type=service:- lists all the services that are running
+systemctl stop <service-name>:- to stop the a service
+systemctl start <service-name>:- to start the service
 
 
